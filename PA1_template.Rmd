@@ -84,7 +84,7 @@ meanstepdata <- aggregate(steps~date,dataset, na.rm=TRUE, FUN=sum)
 
 
 **Question 1** 
-1. Make a histogram of the total number of steps taken each day
+ Make a histogram of the total number of steps taken each day
 
 Using the data extracted for this part of the assignment in the **meanstepdata** variable plot this as a Histogram using the R hist function.
 
@@ -96,7 +96,7 @@ hist(meanstepdata$steps,col="red",xlab="Total Number of Steps per Day",
 ```
 
 **Question 2**
-2. Calculate and report the mean and median total number of steps taken per day
+ Calculate and report the mean and median total number of steps taken per day
 
 The following code calculates the mean steps storing the results in to a variable called **meandataset**
 
@@ -157,7 +157,7 @@ This loads a dataframe with 288 Observations of 2 Variables
 
 **Question 1**
 
-1. Make a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all days (y-axis)
+ Make a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all days (y-axis)
 
 Using the R ggplot library and the dataframe **averagedataset** created for this part of the assignment the following R code plots a line graph.
 
@@ -177,7 +177,7 @@ ggplot(data=averagedataset, aes(x=interval, y=steps)) +
 
 **Question 2**
 
-2.Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
+ Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
 
 Using the which.max function and the dataframe **averagedataset** created for this part of the assignment the following R code locates the interval with the most steps.
 
@@ -200,7 +200,7 @@ Note that there are a number of days/intervals where there are missing values (c
 
 **Question 1**
 
-1. Calculate and report the total number of missing values in the dataset (i.e. the total number of rows with NAs)
+ Calculate and report the total number of missing values in the dataset (i.e. the total number of rows with NAs)
 
 ``` {r echo=TRUE}
 ## Using the sum and complete.cases function on the orginal dataset output the value to a variable called datasetnavalues
@@ -216,7 +216,7 @@ This returns the number of missing values as **2304**
 
 **Question 2**
 
-2.Devise a strategy for filling in all of the missing values in the dataset. The strategy does not need to be sophisticated. For example, you could use the mean/median for that day, or the mean for that 5-minute interval, etc.
+ Devise a strategy for filling in all of the missing values in the dataset. The strategy does not need to be sophisticated. For example, you could use the mean/median for that day, or the mean for that 5-minute interval, etc.
 
 The strategy used is to use a for and if statement loop to check the data in the **dataset** data frame for any NA values using the is.na function, then replace them with the mean values from the **averagedataset*** data frame.
 
@@ -251,7 +251,7 @@ This returns the number of missing values as **0**
 
 **Question 3**
 
-Create a new dataset that is equal to the original dataset but with the missing data filled in.
+ Create a new dataset that is equal to the original dataset but with the missing data filled in.
 
 Now that we now that the data has been filled some of the above code needs to be replicated to recreate the orginial dataset and to also create a new dataset with the NA's filled in.
 
@@ -310,7 +310,7 @@ This returns the number of missing values as **0**
 
 **Question 4**
 
-Make a histogram of the total number of steps taken each day and Calculate and report the mean and median total number of steps taken per day. Do these values differ from the estimates from the first part of the assignment? What is the impact of imputing missing data on the estimates of the total daily number of steps?
+ Make a histogram of the total number of steps taken each day and Calculate and report the mean and median total number of steps taken per day. Do these values differ from the estimates from the first part of the assignment? What is the impact of imputing missing data on the estimates of the total daily number of steps?
 
 
 First extract the totals into a new variable called **meansstepdatanona**.
@@ -375,7 +375,7 @@ There are 2 questions for this part of the assignment. There is also an instruct
 * For this part the weekdays() function may be of some help here. Use the dataset with the filled-in missing values for this part.
 
 **Question 1**
-1. Create a new factor variable in the dataset with two levels - "weekday" and "weekend" indicating whether a given date is a weekday or weekend day.
+  Create a new factor variable in the dataset with two levels - "weekday" and "weekend" indicating whether a given date is a weekday or weekend day.
 
 This question has been answered by taking the **nonadataset** and using the ifelse function to check the rows with the **weekday()** function to identify any Saturdays and Sundays. If the day is a Saturday or Sunday, then mark the row as a Weekend in a new column called **Daytype**. Otherwise mark the row as a **Weekday**.
 
@@ -399,7 +399,7 @@ nonadataset$Daytype <- as.factor(nonadataset$Daytype)
 
 
 **Question 2**
-2. Make a panel plot containing a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis). See the README file in the GitHub repository to see an example of what this plot should look like using simulated data.
+  Make a panel plot containing a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis). See the README file in the GitHub repository to see an example of what this plot should look like using simulated data.
 
 This question has been answered using the Plyr R Package to sort the avgerage steps across a 5 minute interval with the ddply function.
 
